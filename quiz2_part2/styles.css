@@ -1,0 +1,13 @@
+.header{
+    background-color: #f0f0f0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.header h1 {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+}
+.material-icons.md-100 { font-size: 100px; }
