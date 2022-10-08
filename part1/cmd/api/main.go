@@ -21,6 +21,7 @@ type config struct {
 type application struct {
 	config config
 	logger *log.Logger
+	Tools Tools
 }
 func main() {
 	var cfg config
@@ -34,6 +35,7 @@ func main() {
 	app := &application {
 		config: cfg,
 		logger: logger,
+		
  	} 
 	//Create new servemux
 	mux := http.NewServeMux()
