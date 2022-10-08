@@ -1,4 +1,4 @@
-module quiz2_part1.castillojadah.net
+module part1.castillojadah.net
 
 go 1.19
 
