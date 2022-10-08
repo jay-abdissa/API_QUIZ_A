@@ -11,7 +11,7 @@ import	(
 	//"github.com/julienschmidt/httprouter"
 )
 //create entry handler for the POST /v1/entries endpoint
-func (app *application) createEntryHandler (w http.ResponseWriter, r *http.Request){
+func (app *application) createEntryHandler(w http.ResponseWriter, r *http.Request){
 	
 	//our target decode destination
 	var input struct{
@@ -49,7 +49,7 @@ func (app *application) createEntryHandler (w http.ResponseWriter, r *http.Reque
 
 }
 //create entry handler for the GET /v1/entries/:id endpoint
-func (app *application) showEntryHandler (w http.ResponseWriter, r *http.Request){
+func (app *application) showEntryHandler(w http.ResponseWriter, r *http.Request){
 	id, err := app.readIDParam(r)
 	if err != nil {
 		app.notFoundResponse(w, r)

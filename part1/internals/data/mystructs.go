@@ -25,7 +25,7 @@ func ValidateEntries(v *validator.Validator, entries *Mystruct)  {
 	v.Check(len(entries.Name) <= 200, "name", "must not be more than 200 bytes long")
 
 	v.Check(entries.Year != "", "year", "must be provided")
-	v.Check(len(entries.Year) <= 200, "string", "must not be more than 200 bytes long")
+	v.Check(len(entries.Year) <= 200, "year", "must not be more than 200 bytes long")
 
 	v.Check(entries.Contact != "", "contact", "must be provided")
 	v.Check(len(entries.Contact) <= 200, "contact", "must not be more than 200 bytes long")
