@@ -4,6 +4,7 @@ package main
 import(
 	"fmt"
 	"net/http"
+
 )
 
 func (app *application) logError(r *http.Request, err error){
@@ -49,4 +50,9 @@ func (app *application) badRequestResponse(w http.ResponseWriter, r *http.Reques
 
 	app.errorResponse(w, r, http.StatusBadRequest, err.Error())
 
+}
+
+//Validation errors
+func (app *application) failedValidationResponse(w http.ResponseWriter, r *http.Request, errors map[string]string) {
+	app.errorResponse(w, r, http.StatusUnprocessableEntity, errors)
 }

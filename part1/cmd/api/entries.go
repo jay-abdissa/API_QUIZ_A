@@ -6,16 +6,15 @@ import	(
 	"time"
 	"net/http"
 	//"strconv"
-	//"part1.castillojadah.net/internal/data"
+	"part1.castillojadah.net/internals/data"
+	"part1.castillojadah.net/internals/validator"
 	//"github.com/julienschmidt/httprouter"
 )
 //create entry handler for the POST /v1/entries endpoint
 func (app *application) createEntryHandler (w http.ResponseWriter, r *http.Request){
 	
 	//our target decode destination
-	type input struct {
-		ID int64 `json:"id"`
-		CreatedAt time.Time `json:"createdat"`
+	var input struct{
 		Name string `json:"name"`
 		Year string `json:"year"`
 		Contact string `json:"contact"`
@@ -24,11 +23,30 @@ func (app *application) createEntryHandler (w http.ResponseWriter, r *http.Reque
 		Website string `json:"website"`
 		Address string `json:"address"`
 	}
-	err := app.readJSON(w, r, &input)
+
+	err := app.readJSON(w, r, &input )
 	if err != nil {
 		app.badRequestResponse(w, r, err)
 		return
 	}
+	entries := &data.Mystruct{
+		Name: input.Name,
+		Contact: input.Contact,
+		Phone: input.Phone,
+		Email: input.Email,
+		Website: input.Website,
+		Address: input.Address,
+	}
+	//initialize a new validator instance
+	v := validator.New()
+	//check the map to determine if there were any validation errors
+	if data.ValidateEntries(v,entries); !v.Valid(){
+		app.failedValidationResponse(w,r,v.Errors)
+		return
+	}
+	//Display the request
+	fmt.Fprintf(w, "%+v\n", input)
+
 }
 //create entry handler for the GET /v1/entries/:id endpoint
 func (app *application) showEntryHandler (w http.ResponseWriter, r *http.Request){
