@@ -6,12 +6,29 @@ import	(
 	"time"
 	"net/http"
 	//"strconv"
-	"part1.castillojadah.net/internal/data"
+	//"part1.castillojadah.net/internal/data"
 	//"github.com/julienschmidt/httprouter"
 )
 //create entry handler for the POST /v1/entries endpoint
 func (app *application) createEntryHandler (w http.ResponseWriter, r *http.Request){
-	fmt.Fprintln(w, "Create a new entry...")
+	
+	//our target decode destination
+	type input struct {
+		ID int64 `json:"id"`
+		CreatedAt time.Time `json:"createdat"`
+		Name string `json:"name"`
+		Year string `json:"year"`
+		Contact string `json:"contact"`
+		Phone string `json:"phone"`
+		Email string `json:"email"`
+		Website string `json:"website"`
+		Address string `json:"address"`
+	}
+	err := app.readJSON(w, r, &input)
+	if err != nil {
+		app.badRequestResponse(w, r, err)
+		return
+	}
 }
 //create entry handler for the GET /v1/entries/:id endpoint
 func (app *application) showEntryHandler (w http.ResponseWriter, r *http.Request){
