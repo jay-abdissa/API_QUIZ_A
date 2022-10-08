@@ -84,7 +84,7 @@ func (app *application) showRandomHandler(w http.ResponseWriter, r *http.Request
 	}
 	// Display the random string
 	num := int(id) //Convert int64 id to int
-	fmt.Fprintf(w, "show random string for %d\n", num)
+	fmt.Fprintf(w, "Showing random string for %d\n", num)
 	fmt.Fprintln(w, app.Tools.GenerateRandomString(num))
 }
 
