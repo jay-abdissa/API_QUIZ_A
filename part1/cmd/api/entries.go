@@ -30,6 +30,7 @@ func (app *application) createEntryHandler(w http.ResponseWriter, r *http.Reques
 	}
 	entries := &data.Mystruct{
 		Name: input.Name,
+		Year: input.Year,
 		Contact: input.Contact,
 		Phone: input.Phone,
 		Email: input.Email,
