@@ -11,3 +11,160 @@
     margin: 0;
 }
 .material-icons.md-100 { font-size: 100px; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+/* ------ */
+
+.header {
+  background-color: #fff;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.header-nav {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+
+.header h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-nav .nav-brand {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  font-weight: 600;
+  height: 45px;
+  margin: 0;
+  position: relative;
+}
+
+.header-nav .nav-brand:before {
+  content: "\f030";
+  display: inline-block;
+  font: normal normal normal 24px FontAwesome;
+  margin: 2px 26px 0 0;
+}
+
+.header-nav .nav-brand:after {
+  background: #ddd;
+  content: " ";
+  display: inline-block;
+  height: 100%;
+  left: 40px;
+  position: absolute;
+  width: 1px;
+}
+
+/* Detailed Image */
+/* -------------- */
+
+.detailed-photo img {
+  display: block;
+  width: 100%;
+}
+.main-div {width: 100%;}
+.detailed-photo .photo-info {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+.like-button {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+span {
+    margin-left: auto;
+}
+.detailed-photo .caption {
+  font-size: 30px;
+  font-weight: lighter;
+  font-style: italic;
+  margin: 0 0 10px 0;
+}
+
+.detailed-photo .detailed-photo + .detailed-photo {
+  margin-top: 50px;
+}
+
+@media (min-width: 650px) {
+  body {
+    background: #f9f9f9;
+  }
+
+  /* Header */
+  /* ------ */
+
+  .header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 60px;
+  }
+
+  .header-nav {
+    margin: 0 auto;
+    padding: 0;
+    width: 600px;
+  }
+
+  .header-nav .nav-brand {
+    font-size: 40px;
+    height: 55px;
+  }
+
+  .header-nav .nav-brand:before {
+    font-size: 32px;
+    margin-right: 30px;
+  }
+
+  .header-nav .nav-brand:after {
+    left: 50px;
+  }
+
+  /* Shared */
+  /* ------ */
+
+  .content-flow {
+    margin: 0 auto 60px;
+  }
+
+  .content-flow {
+    width: 600px;
+  }
+
+  /* Detailed Image */
+  /* -------------- */
+
+  .detailed-photo {
+    box-shadow: 0 0 2px #ccc;
+    background: #fff;
+  }
+
+  .detailed-photo .photo-info {
+    padding-bottom: 10px;
+  }
+
+  /* Flow */
+  /* ---- */
+
+  .content-flow .detailed-photo + .detailed-photo {
+    margin-top: 60px;
+    padding-top: 0;
+  }
+}
